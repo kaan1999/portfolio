@@ -5,11 +5,12 @@
     padding: 0;
 }
 html{
+    filter: brightness(135%);
     font-family: "Teko";
     --clr-dark: #222222;
     --clr-light: silver;
     --clr-cyan: #006ea4;
-    --fs-small: 1.2rem;
+    --fs-small: 1.35rem;
     --fs-medium: 1.8rem;
     --fs-large: 2.3rem;
     --fw-light: 300;
@@ -22,6 +23,7 @@ a{
     text-decoration: none;
 }
 img{
+    filter: brightness(90%);
     display: block;
     max-width: 100%;
 }
@@ -35,9 +37,11 @@ body{
 .container{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 5fr 0.5fr;
+    grid-template-rows: min-content 1fr min-content;
     height: 100%;
 }
+
+
 header{
     justify-self: center;
     max-width: 1300px;
@@ -109,6 +113,7 @@ footer{
     font-weight: var(--fw-light);
 }
 main{
+    position: relative;
     background-color: var(--clr-light);
     max-width: 1300px;
     width: 100%;
@@ -118,23 +123,69 @@ main{
     padding: 3rem 2rem;
     display: grid;
     grid-template-columns: 1fr;
+    align-items: start;
     gap: 5.6rem;
 }
-.main__home{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 2rem;
-    justify-items: center;
-    align-items: center;
-    background: darkgray;
-}
-.main__about-me{
+
+.main__section{
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 2rem;
     justify-items: center;
     align-items: center;
     background-color: darkgray;
+}
+.main__portfolio{
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: start;
+}
+.main__portfolio-title{
+    grid-column: 1 / -1;
+    width: 100%;
+    text-align: left;
+}
+.main__portfolio-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: .8rem;
+    color: var(--clr-dark) !important;
+    padding: .3rem;
+    border-bottom: .1rem solid var(--clr-dark);
+}
+
+.main__potfolio-type{
+    font-size: var(--fs-medium);
+    font-weight: var(--fw-light);
+}
+.main__portfolio-text{
+    flex-grow: 1;
+    max-height: 5rem;
+    overflow-y: scroll;
+}
+.main__portfolio-link{
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    align-self: flex-end;
+    color: var(--clr-dark);
+}
+.main__portfolio-link:hover{
+    color: var(--clr-dark);
+}
+.main__portfolio-box-title{
+    font-size: var(--fs-medium) !important;
+    font-weight: var(--fw-medium) !important;
+    background-color: transparent !important;
+    color: var(--clr-dark) !important;
+}
+.main__portfolio-box-title:hover{
+    color: var(--clr-light);
+}
+.main__portfolio-box > img{
+    width: 100%;
+    height: 300px;
+    box-shadow: 0 .5rem 1rem .1rem var(--clr-dark);
 }
 .main__about-text{
     height: 100%;
@@ -143,7 +194,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: start;
-    gap: .5rem
+    gap: .5rem;
 }
 
 .main__img{
@@ -219,6 +270,9 @@ main{
     }
     .main__btn-mail{
         align-self: center;
+    }
+    .main__portfolio{
+        grid-template-columns: 1fr;
     }
 }
 @media screen and (max-width: 1100px){
