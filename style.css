@@ -137,7 +137,7 @@ main{
 }
 .main__portfolio{
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    align-items: start;
+    justify-items: stretch;
 }
 .main__portfolio-title{
     grid-column: 1 / -1;
@@ -189,7 +189,7 @@ main{
 }
 .main__about-text{
     height: 100%;
-    justify-self: start;
+    justify-self: stretch;
     align-self: flex-start;
     display: flex;
     flex-direction: column;
@@ -235,10 +235,11 @@ main{
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    justify-content: space-between;
+    justify-content: start;
 }
 .main__btn-mail{
-    align-self: flex-end;
+    align-self: end;
+    justify-self: end;
     padding: 0 2rem;
     background-color: var(--clr-cyan);
     color: var(--clr-light);
